@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.quickbite.com.example.quickbite.ForgotPasswordActivity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 
@@ -17,7 +18,8 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     private lateinit var registrationButton: TextView
     private lateinit var auth: FirebaseAuth
-    private lateinit var firestore: FirebaseFirestore
+    private lateinit var forgotPasswordButton: TextView
+    private lateinit var fireStore: FirebaseFirestore
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,6 +31,7 @@ class LoginActivity : AppCompatActivity() {
         emailEditText = findViewById(R.id.emailinput) // Corrected from usernameEditText
         passwordEditText = findViewById(R.id.passwordInput)
         loginButton = findViewById(R.id.loginButton)
+        forgotPasswordButton = findViewById(R.id.forgotPassword)
 
         loginButton.setOnClickListener {
             val email: String = emailEditText.text.toString()
@@ -39,6 +42,11 @@ class LoginActivity : AppCompatActivity() {
 
         registrationButton.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
+            startActivity(intent)
+        }
+
+        forgotPasswordButton.setOnClickListener {
+            val intent = Intent(this, ForgotPasswordActivity::class.java)
             startActivity(intent)
         }
     }

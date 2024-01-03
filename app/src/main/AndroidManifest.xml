@@ -35,7 +35,9 @@
         <activity
             android:name=".RestaurantPageActivity"
             android:exported="false" />
-
+        <activity
+            android:name=".com.example.quickbite.ForgotPasswordActivity"
+            android:exported="false" />
         <activity
             android:name=".CartActivity"
             android:exported="false" />
