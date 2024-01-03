@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/restaurantImageView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/mcdo"/>
+
+    <TextView
+        android:id="@+id/exchangeRateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Exchange Rate"
+        android:textSize="12sp"/>
+
+    <TextView
+        android:id="@+id/blueTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="90,000"
+        android:textSize="10sp"
+        android:textColor="#0000FF"
+        android:textStyle="bold"
+        android:paddingTop="8dp"/>
+
+    <TextView
+        android:id="@+id/restaurantNameTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restaurant Name"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:paddingTop="16dp"/>
+
+    <TextView
+        android:id="@+id/descriptionTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Restaurant Description"
+        android:textSize="16sp"
+        android:paddingTop="8dp"/>
+
+</LinearLayout>

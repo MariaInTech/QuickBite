@@ -1,0 +1,192 @@
+[
+  {
+    "id": "1",
+    "restaurantName": "Tasty Delights",
+    "locationDescription": "123 Main Street, Cityville",
+    "imageURL": "https://example.com/tasty_delights.jpg",
+    "menu": [
+      {
+        "itemId": "101",
+        "itemName": "Classic Burger",
+        "price": 10.99,
+        "imageURL": "https://example.com/classic_burger.jpg"
+      },
+      {
+        "itemId": "102",
+        "itemName": "Margherita Pizza",
+        "price": 12.99,
+        "imageURL": "https://example.com/margherita_pizza.jpg"
+      },
+      {
+        "itemId": "103",
+        "itemName": "Caesar Salad",
+        "price": 8.99,
+        "imageURL": "https://example.com/caesar_salad.jpg"
+      },
+      {
+        "itemId": "104",
+        "itemName": "Chocolate Sundae",
+        "price": 6.99,
+        "imageURL": "https://example.com/chocolate_sundae.jpg"
+      },
+      {
+        "itemId": "105",
+        "itemName": "Iced Coffee",
+        "price": 3.99,
+        "imageURL": "https://example.com/iced_coffee.jpg"
+      }
+    ]
+  },
+  {
+    "id": "2",
+    "restaurantName": "Spicy Bites",
+    "locationDescription": "456 Oak Avenue, Townsville",
+    "imageURL": "https://example.com/spicy_bites.jpg",
+    "menu": [
+      {
+        "itemId": "201",
+        "itemName": "Spicy Chicken Wings",
+        "price": 9.99,
+        "imageURL": "https://example.com/spicy_chicken_wings.jpg"
+      },
+      {
+        "itemId": "202",
+        "itemName": "Vegetarian Burrito",
+        "price": 11.99,
+        "imageURL": "https://example.com/vegetarian_burrito.jpg"
+      },
+      {
+        "itemId": "203",
+        "itemName": "Shrimp Tacos",
+        "price": 14.99,
+        "imageURL": "https://example.com/shrimp_tacos.jpg"
+      },
+      {
+        "itemId": "204",
+        "itemName": "Mango Salsa",
+        "price": 5.99,
+        "imageURL": "https://example.com/mango_salsa.jpg"
+      },
+      {
+        "itemId": "205",
+        "itemName": "Jalapeno Popper",
+        "price": 7.99,
+        "imageURL": "https://example.com/jalapeno_popper.jpg"
+      }
+    ]
+  },
+  {
+    "id": "3",
+    "restaurantName": "Sushi Haven",
+    "locationDescription": "789 Pine Lane, Villagetown",
+    "imageURL": "https://example.com/sushi_haven.jpg",
+    "menu": [
+      {
+        "itemId": "301",
+        "itemName": "Nigiri Platter",
+        "price": 15.99,
+        "imageURL": "https://example.com/nigiri_platter.jpg"
+      },
+      {
+        "itemId": "302",
+        "itemName": "Dragon Roll",
+        "price": 17.99,
+        "imageURL": "https://example.com/dragon_roll.jpg"
+      },
+      {
+        "itemId": "303",
+        "itemName": "Miso Soup",
+        "price": 4.99,
+        "imageURL": "https://example.com/miso_soup.jpg"
+      },
+      {
+        "itemId": "304",
+        "itemName": "Edamame",
+        "price": 3.49,
+        "imageURL": "https://example.com/edamame.jpg"
+      },
+      {
+        "itemId": "305",
+        "itemName": "Green Tea Ice Cream",
+        "price": 6.99,
+        "imageURL": "https://example.com/green_tea_ice_cream.jpg"
+      }
+    ]
+  },
+  {
+    "id": "4",
+    "restaurantName": "Grill Master",
+    "locationDescription": "567 Cedar Street, Suburbia",
+    "imageURL": "https://example.com/grill_master.jpg",
+    "menu": [
+      {
+        "itemId": "401",
+        "itemName": "BBQ Ribs",
+        "price": 18.99,
+        "imageURL": "https://example.com/bbq_ribs.jpg"
+      },
+      {
+        "itemId": "402",
+        "itemName": "Steakhouse Burger",
+        "price": 14.99,
+        "imageURL": "https://example.com/steakhouse_burger.jpg"
+      },
+      {
+        "itemId": "403",
+        "itemName": "Grilled Vegetables",
+        "price": 10.99,
+        "imageURL": "https://example.com/grilled_vegetables.jpg"
+      },
+      {
+        "itemId": "404",
+        "itemName": "Coleslaw",
+        "price": 3.99,
+        "imageURL": "https://example.com/coleslaw.jpg"
+      },
+      {
+        "itemId": "405",
+        "itemName": "Peach Cobbler",
+        "price": 7.49,
+        "imageURL": "https://example.com/peach_cobbler.jpg"
+      }
+    ]
+  },
+  {
+    "id": "5",
+    "restaurantName": "Sweet Treats Cafe",
+    "locationDescription": "890 Maple Drive, Metropolis",
+    "imageURL": "https://example.com/sweet_treats_cafe.jpg",
+    "menu": [
+      {
+        "itemId": "501",
+        "itemName": "Chocolate Fondue",
+        "price": 12.99,
+        "imageURL": "https://example.com/chocolate_fondue.jpg"
+      },
+      {
+        "itemId": "502",
+        "itemName": "Berry Cheesecake",
+        "price": 9.99,
+        "imageURL": "https://example.com/berry_cheesecake.jpg"
+      },
+      {
+        "itemId": "503",
+        "itemName": "Red Velvet Cupcake",
+        "price": 4.99,
+        "imageURL": "https://example.com/red_velvet_cupcake.jpg"
+      },
+      {
+        "itemId": "504",
+        "itemName": "Caramel Macchiato",
+        "price": 5.99,
+        "imageURL": "https://example.com/caramel_macchiato.jpg"
+      },
+      {
+        "itemId": "505",
+        "itemName": "Fruit Parfait",
+        "price": 8.49,
+        "imageURL": "https://example.com/fruit_parfait.jpg"
+      }
+    ]
+  }
+]
