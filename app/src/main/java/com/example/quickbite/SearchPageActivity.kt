@@ -29,13 +29,11 @@ class SearchPageActivity : AppCompatActivity() {
 
         searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
             override fun onQueryTextSubmit(query: String): Boolean {
-
                 performSearch(query)
                 return true
             }
 
             override fun onQueryTextChange(newText: String): Boolean {
-
                 performSearch(newText)
                 return true
             }

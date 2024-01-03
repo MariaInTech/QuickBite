@@ -25,7 +25,7 @@ class RestaurantMenu : Fragment() {
         val menuItems = arguments?.getParcelableArrayList<MenuItem>("menuItems")
         val restaurant = arguments?.getString("restaurantName")
 
-        itemsAdapter = MenuItemsAdapter(menuItems ?: emptyList())
+        itemsAdapter = MenuItemsAdapter(requireContext(), menuItems ?: emptyList(),restaurant)
         recyclerView.adapter = itemsAdapter
 
         return view

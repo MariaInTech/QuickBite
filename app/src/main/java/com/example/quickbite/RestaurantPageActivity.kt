@@ -13,6 +13,7 @@ import com.example.quickbite.com.example.quickbite.util.AppViewModel
 import com.example.quickbite.com.example.quickbite.util.loadImageFromURL
 import com.example.quickbite.models.MenuItem
 import com.example.quickbite.models.Restaurant
+
 class RestaurantPageActivity : AppCompatActivity() {
     private val viewModel: AppViewModel by viewModels { SavedStateViewModelFactory(application, this) }
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -6,6 +6,5 @@ class Application:Application() {
     override fun onCreate() {
         super.onCreate()
         FirebaseInitializer.initializeFirebase(this)
-
     }
 }

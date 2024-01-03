@@ -33,7 +33,6 @@ class RestaurantsAdapter(
         holder.restaurantImage.loadImageFromURL(restaurant.imageURL)
 
         holder.itemView.setOnClickListener {
-            // Start RestaurantPageActivity and pass the selected restaurant as an extra
             val intent = Intent(context, RestaurantPageActivity::class.java)
             intent.putExtra("selectedRestaurant", restaurant)
             context.startActivity(intent)

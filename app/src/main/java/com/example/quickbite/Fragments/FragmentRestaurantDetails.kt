@@ -18,10 +18,8 @@ class FragmentRestaurantDetails : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_restaurant_details, container, false)
 
-        // Access restaurant data and update UI
         val restaurantNameTextView: TextView = view.findViewById(R.id.restaurantNameTextView)
         val descriptionTextView: TextView = view.findViewById(R.id.descriptionTextView)
         val restaurantImageView: ImageView = view.findViewById(R.id.restaurantImageView)
