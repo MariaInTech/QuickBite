@@ -20,9 +20,6 @@
             android:name=".AddToCart"
             android:exported="false" />
         <activity
-            android:name=".CartItem"
-            android:exported="false" />
-        <activity
             android:name=".ForgotPasswordActivity"
             android:exported="false" />
         <activity
@@ -43,12 +40,6 @@
         <activity
             android:name=".RestaurantPageActivity"
             android:exported="false" />
-<<<<<<< HEAD
-        <activity
-            android:name=".com.example.quickbite.ForgotPasswordActivity"
-            android:exported="false" />
-=======
->>>>>>> 486a26154e910ed75542c1486f7d23fa3e7c7286
         <activity
             android:name=".CartActivity"
             android:exported="false" />

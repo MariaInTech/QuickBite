@@ -50,5 +50,8 @@ class RestaurantPageActivity : AppCompatActivity() {
                 .commit()
         }
     }
+     fun navigateBack() {
+        onBackPressed()
+    }
 
 }
