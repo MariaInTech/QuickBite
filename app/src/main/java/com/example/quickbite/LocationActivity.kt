@@ -1,9 +1,11 @@
 package com.example.quickbite
 
+
 import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
@@ -34,18 +36,27 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun initializeMap(savedInstanceState: Bundle?) {
-        // Check and request location permission
-        if (checkLocationPermission()) {
-            // Initialize MapView
-            mapView = findViewById(R.id.mapView)
-            mapView.onCreate(savedInstanceState)
-            mapView.getMapAsync(this)
+        // Initialize MapView
+        mapView = findViewById(R.id.mapView)
+        mapView.onCreate(savedInstanceState)
+        mapView.getMapAsync(this)
 
-            // Set a mock location (replace latitude and longitude with your desired values)
-            val mockLocation = LatLng(37.7749, -122.4194) // Example coordinates (San Francisco)
-            mapView.onResume() // Needed to trigger the OnMapReadyCallback
-        } else {
-            requestLocationPermission()
+        // Set a mock location (replace latitude and longitude with your desired values)
+        val mockLocation = LatLng(37.7749, -122.4194) // Example coordinates (San Francisco)
+        mapView.onResume() // Needed to trigger the OnMapReadyCallback
+
+        // Add click listener to place a marker on the map
+        mapView.getMapAsync { map ->
+            map.setOnMapClickListener { latLng ->
+                map.clear() // Clear existing markers
+                map.addMarker(MarkerOptions().position(latLng).title("Selected Location"))
+                // You can save the selected location (latLng) for further use
+                Toast.makeText(
+                    this,
+                    "Location selected: ${latLng.latitude}, ${latLng.longitude}",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
     }
 
@@ -112,83 +123,31 @@ class LocationActivity : AppCompatActivity(), OnMapReadyCallback {
 
     override fun onResume() {
         super.onResume()
-        mapView.onResume()
+        if (::mapView.isInitialized && mapView != null) {
+            mapView.onResume()
+        }
     }
+
 
     override fun onPause() {
         super.onPause()
-        mapView.onPause()
+        if (::mapView.isInitialized && mapView != null) {
+            mapView.onPause()
+        }
     }
+
 
     override fun onDestroy() {
         super.onDestroy()
-        mapView.onDestroy()
+        if (::mapView.isInitialized && mapView != null) {
+            mapView.onDestroy()
+        }
     }
 
     override fun onLowMemory() {
         super.onLowMemory()
-        mapView.onLowMemory()
+        if (::mapView.isInitialized && mapView != null) {
+            mapView.onLowMemory()
+        }
     }
 }
-
-
-
-
-
-
-
-/*package com.example.quickbite
-
-import android.content.pm.PackageManager
-import android.location.Address
-import android.location.Geocoder
-import android.location.LocationManager
-import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import java.io.IOException
-import java.util.Locale
-
-
-
-class LocationActivity : AppCompatActivity() {
-    private val MY_PERMISSIONS_REQUEST_LOCATION = 1 // Replace with your actual constant value
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_location)
-
-        if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // Request the permission
-            ActivityCompat.requestPermissions(this, arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), MY_PERMISSIONS_REQUEST_LOCATION)
-        } else {
-            // Permission already granted, proceed with location access
-            getLocation()
-        }
-    }
-    private fun getLocation() {
-        val locationManager = getSystemService(LOCATION_SERVICE) as LocationManager
-        val location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
-        if (location != null) {
-            val latitude = location.latitude
-            val longitude = location.longitude
-            // Now you can use these coordinates to get the location name
-            getLocationName(latitude, longitude)
-        }
-    }
-    private fun getLocationName(latitude: Double, longitude: Double) {
-        val geocoder = Geocoder(this, Locale.getDefault())
-        try {
-            val addresses: List<Address>? = geocoder.getFromLocation(latitude, longitude, 1)
-            if (addresses != null && addresses.size > 0) {
-                val locationName: String = addresses[0].getAddressLine(0)
-                // Now you have the location name, you can save it or display it as needed
-            }
-        } catch (e: IOException) {
-            e.printStackTrace()
-        }
-    }
-
-
-}*/

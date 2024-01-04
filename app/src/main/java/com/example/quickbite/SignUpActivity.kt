@@ -58,33 +58,42 @@ class SignUpActivity : AppCompatActivity() {
 
                     val userId = auth.currentUser?.uid
 
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-
                     if (userId != null) {
                         val userReference = firestore.collection("/users").document(userId)
                         val userData = hashMapOf(
                             "email" to email,
                             "username" to username,
                             "phoneNumber" to phoneNumber,
-                            "geoPoint" to GeoPoint(31.0, 31.0) // Set default latitude and longitude to 31
+                            "geoPoint" to GeoPoint(
+                                31.0,
+                                31.0
+                            ) // Set default latitude and longitude to 31
                         )
 
                         userReference.set(userData)
                             .addOnSuccessListener {
-                                /*val intent = Intent(this, LoginActivity::class.java)
-                                startActivity(intent)
-                                finish()*/
+                                // Navigate to LocationActivity after successful signup
+                                val locationIntent =
+                                    Intent(this@SignUpActivity, LocationActivity::class.java)
+                                startActivity(locationIntent)
+                                finish()
                             }
                             .addOnFailureListener { e ->
                                 // Handle errors
-                                Toast.makeText(this, "Firestore write failed: ${e.message}", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(
+                                    this,
+                                    "Firestore write failed: ${e.message}",
+                                    Toast.LENGTH_SHORT
+                                ).show()
                             }
                     }
                 } else {
                     // If signup fails, display a message to the user.
-                    Toast.makeText(this, "Signup failed. ${task.exception?.message}", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(
+                        this,
+                        "Signup failed. ${task.exception?.message}",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
     }
