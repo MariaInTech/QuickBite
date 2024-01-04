@@ -17,6 +17,7 @@ class AppViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel()
     private val _restaurants = MutableLiveData<List<Restaurant>>()
     val restaurants: LiveData<List<Restaurant>> get() = _restaurants
 
+    private var originalRestaurants: List<Restaurant>? = null
     fun fetchRestaurants() {
         viewModelScope.launch {
             try {
@@ -33,25 +34,13 @@ class AppViewModel(private val savedStateHandle: SavedStateHandle) : ViewModel()
             }
         }
     }
-    /*fun fetchMenuItems(restaurantId: Int, callback: (List<MenuItem>) -> Unit) {
-        viewModelScope.launch {
-            try {
-                val response = ApiClient.getMenuItems(restaurantId)
-
-                if (response.isSuccessful) {
-                    val menuItems = response.body()
-                    if (menuItems != null) {
-                        callback.invoke(menuItems)
-                    } else {
-                        Log.e(TAG, "Menu items response body is null")
-                    }
-                } else {
-                    Log.e(TAG, "Error: ${response.code()} - ${response.message()}")
-                }
-            } catch (e: Exception) {
-                Log.e(TAG, "Exception: ${e.message}")
+    fun filterRestaurants(query: String) {
+        originalRestaurants?.let { restaurants ->
+            val filteredRestaurants = restaurants.filter {
+                it.restaurantName.contains(query, ignoreCase = true)
             }
+            _restaurants.value = filteredRestaurants
         }
-    }*/
+    }
 }
 

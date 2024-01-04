@@ -1,10 +1,13 @@
 package com.example.quickbite
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.SavedStateViewModelFactory
 import com.example.quickbite.com.example.quickbite.util.AppViewModel
+import androidx.appcompat.widget.SearchView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainPageActivity : AppCompatActivity() {
@@ -21,7 +24,18 @@ class MainPageActivity : AppCompatActivity() {
         navigationHandler = NavigationHandler(this)
         navigationHandler.setupNavigation(bottomNavigationView)
 
-        viewModel.fetchRestaurants()
+
+        /*val searchCardView = findViewById(R.id.searchCardView)
+        val searchView = searchCardView.findViewById(R.id.searchView)
+
+        // Set an OnClickListener for the SearchView
+        searchView.setOnClickListener {
+            // Start the SearchActivity
+            val intent = Intent(this, SearchPageActivity::class.java)
+            startActivity(intent)
+        }*/
+
+        //viewModel.fetchRestaurants()
 
     }
 }
