@@ -1,4 +1,3 @@
-// FirebaseConfigReader.kt
 package com.example.quickbite
 
 import android.content.Context

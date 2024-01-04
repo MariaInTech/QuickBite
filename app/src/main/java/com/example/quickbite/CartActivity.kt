@@ -6,11 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.quickbite.models.CartItem
 import android.util.Log
+import com.example.quickbite.models.MenuItem
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import java.util.*
-
 
 class CartActivity : AppCompatActivity(), CartAdapter.CartItemClickListener {
 
@@ -23,9 +23,21 @@ class CartActivity : AppCompatActivity(), CartAdapter.CartItemClickListener {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cart)
 
-        //addRandomOrders()
-
         val cartItems = generateDummyCartItems()
+
+        val selectedItem: MenuItem? = intent.getParcelableExtra("selectedItem")
+        val restaurantName: String? = intent.getStringExtra("restaurantName")
+
+        Log.d("CartActivity", "Selected Item Name: ${selectedItem?.itemName}")
+        Log.d("CartActivity", "Restaurant Name: $restaurantName")
+
+        val cartItem = CartItem(
+            restaurantName ?: "Restaurant Name Not Available",
+            selectedItem?.itemName ?: "Item Name Not Available",
+            quantity = 1,
+            price = selectedItem?.price ?: 0.0,
+            imageResourceURL = selectedItem?.imageURL ?: ""
+        )
 
         recyclerView = findViewById(R.id.recyclerView)
         cartAdapter = CartAdapter(cartItems, this)
@@ -40,15 +52,12 @@ class CartActivity : AppCompatActivity(), CartAdapter.CartItemClickListener {
             // Reference to the Orders collection
             val ordersCollection = firestore.collection("orders")
 
-            // Dummy data for orders
             val orderData = listOf(
                 createRandomOrder("Tasty Delights"),
                 createRandomOrder("Spicy Bites"),
                 createRandomOrder("Sushi Haven")
-                // Add more random orders as needed
             )
 
-            // Add each order to Firestore
             for (order in orderData) {
                 ordersCollection.add(order)
                     .addOnSuccessListener {
@@ -70,7 +79,6 @@ class CartActivity : AppCompatActivity(), CartAdapter.CartItemClickListener {
             mapOf("itemId" to "102", "itemName" to "Margherita Pizza", "price" to 12.99)
         )
 
-        // Create a random order document
         return mapOf(
             "user" to firestore.document("users/${auth.currentUser?.uid}"), // Reference to the user
             "restaurantName" to restaurantName,
@@ -79,11 +87,10 @@ class CartActivity : AppCompatActivity(), CartAdapter.CartItemClickListener {
         )
     }
     private fun generateDummyCartItems(): List<CartItem> {
-        // Replace this with your actual data source
         return listOf(
-            CartItem("Item 1", 2, 10.99, ""),
-            CartItem("Item 2", 1, 5.99, ""),
-            CartItem("Item 3", 3, 15.99, "")
+            CartItem("cookie","Item 1", 2, 10.99, ""),
+            CartItem("tawouk","Item 2", 1, 5.99, ""),
+            CartItem("whatever","Item 3", 3, 15.99, "")
         )
     }
 

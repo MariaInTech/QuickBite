@@ -1,5 +1,7 @@
 package com.example.quickbite
 
+import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,20 +11,30 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.quickbite.models.MenuItem
 import com.example.quickbite.com.example.quickbite.util.loadImageFromURL
 
-class MenuItemsAdapter(private val items: List<MenuItem>) :
-    RecyclerView.Adapter<MenuItemsAdapter.ItemViewHolder>() {
+class MenuItemsAdapter(
+    private val context: Context,
+    private val items: List<MenuItem>,
+    private val restaurantName: String?
+) : RecyclerView.Adapter<MenuItemsAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.menu_item, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.menu_item, parent, false)
         return ItemViewHolder(view)
     }
+
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val item = items[position]
         holder.itemName.text = item.itemName ?: "Item Name Not Available"
         holder.itemPrice.text = "Price: $${item.price}"
         item.imageURL?.let {
             holder.itemImage.loadImageFromURL(it)
+        }
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(context, AddToCart::class.java)
+            intent.putExtra("selectedItem", item)
+            intent.putExtra("restaurantName",restaurantName)
+            context.startActivity(intent)
         }
     }
     override fun getItemCount(): Int {

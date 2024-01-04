@@ -38,7 +38,6 @@ class CartAdapter(private val cartItems: List<CartItem>, private val listener: C
         holder.itemQuantity.text = currentItem.quantity.toString()
         holder.itemPrice.text = "$${currentItem.price}"
 
-        // Load image using Glide
         Glide.with(holder.itemView)
             .load(currentItem.imageResourceURL)
             .into(holder.itemImage)
