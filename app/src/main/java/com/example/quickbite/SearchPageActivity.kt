@@ -65,19 +65,4 @@ class SearchPageActivity : AppCompatActivity() {
         }
     }
 
-
-
-    /*private fun performSearch(query: String) {
-        val filteredData = getDummyData().filter { it.contains(query, ignoreCase = true) }
-        (recyclerView.adapter as? SearchResultAdapter)?.updateData(filteredData)
-
-        recyclerView.visibility = if (filteredData.isEmpty()) View.GONE else View.VISIBLE
-    }*/
-
-    /*private fun performSearch(query: String) {
-        viewModel.filterRestaurants(query)
-    }
-    private fun getDummyData(): List<String> {
-        return listOf("Result 1", "Result 2", "Result 3", "Result 4", "Result 5")
-    }*/
 }

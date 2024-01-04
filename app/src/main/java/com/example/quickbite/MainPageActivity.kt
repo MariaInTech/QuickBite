@@ -11,7 +11,6 @@ import androidx.appcompat.widget.SearchView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainPageActivity : AppCompatActivity() {
-    private val viewModel: AppViewModel by viewModels { SavedStateViewModelFactory(application, this) }
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navigationHandler: NavigationHandler
@@ -23,19 +22,6 @@ class MainPageActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         navigationHandler = NavigationHandler(this)
         navigationHandler.setupNavigation(bottomNavigationView)
-
-
-        /*val searchCardView = findViewById(R.id.searchCardView)
-        val searchView = searchCardView.findViewById(R.id.searchView)
-
-        // Set an OnClickListener for the SearchView
-        searchView.setOnClickListener {
-            // Start the SearchActivity
-            val intent = Intent(this, SearchPageActivity::class.java)
-            startActivity(intent)
-        }*/
-
-        //viewModel.fetchRestaurants()
 
     }
 }
