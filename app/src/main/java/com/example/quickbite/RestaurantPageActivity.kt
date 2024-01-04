@@ -41,8 +41,6 @@ class RestaurantPageActivity : AppCompatActivity() {
                 putString("restaurantName", it.restaurantName)
             }
 
-            /*val bundle = Bundle()
-            bundle.putParcelableArrayList("menuItems", ArrayList(it.menu))*/
             restaurantMenuFragment.arguments = bundle
 
             supportFragmentManager.beginTransaction()

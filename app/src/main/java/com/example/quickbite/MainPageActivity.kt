@@ -1,14 +1,16 @@
 package com.example.quickbite
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.cardview.widget.CardView
 import androidx.lifecycle.SavedStateViewModelFactory
 import com.example.quickbite.com.example.quickbite.util.AppViewModel
+import androidx.appcompat.widget.SearchView
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainPageActivity : AppCompatActivity() {
-    private val viewModel: AppViewModel by viewModels { SavedStateViewModelFactory(application, this) }
 
     private lateinit var bottomNavigationView: BottomNavigationView
     private lateinit var navigationHandler: NavigationHandler
@@ -20,8 +22,6 @@ class MainPageActivity : AppCompatActivity() {
         bottomNavigationView = findViewById(R.id.bottomNavigationView)
         navigationHandler = NavigationHandler(this)
         navigationHandler.setupNavigation(bottomNavigationView)
-
-        viewModel.fetchRestaurants()
 
     }
 }

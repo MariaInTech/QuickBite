@@ -37,13 +37,6 @@ class RestaurantsAdapter(
             intent.putExtra("selectedRestaurant", restaurant)
             context.startActivity(intent)
         }
-       /* holder.itemView.setOnClickListener {
-            val fragment = FragmentRestaurantDetails.newInstance(restaurant)
-            fragmentManager.beginTransaction()
-                .replace(R.id.fragment_restaurant, fragment)
-                .addToBackStack(null)
-                .commit()
-        }*/
     }
     override fun getItemCount(): Int {
         return restaurantList.size
