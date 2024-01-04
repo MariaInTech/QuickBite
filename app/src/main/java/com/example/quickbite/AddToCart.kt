@@ -10,7 +10,9 @@ import com.example.quickbite.models.MenuItem
 import com.example.quickbite.com.example.quickbite.util.loadImageFromURL
 
 class AddToCart : AppCompatActivity() {
+
     private lateinit var btnAddToCart: Button
+    private lateinit var btnBackToMenu: Button
     private lateinit var itemImageView: ImageView
     private lateinit var itemNameTextView: TextView
     private lateinit var itemPriceTextView: TextView
@@ -19,8 +21,8 @@ class AddToCart : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_add_to_cart)
 
-
         btnAddToCart = findViewById(R.id.btnAddToCart)
+        btnBackToMenu = findViewById(R.id.btnBackToMenu)
         itemImageView = findViewById(R.id.itemImageView)
         itemNameTextView = findViewById(R.id.itemNameTextView)
         itemPriceTextView = findViewById(R.id.itemPriceTextView)
@@ -43,7 +45,11 @@ class AddToCart : AppCompatActivity() {
             cartIntent.putExtra("restaurantName", restaurantName)
             startActivity(cartIntent)
         }
+
+        btnBackToMenu.setOnClickListener {
+            val menuIntent = Intent(this@AddToCart, RestaurantPageActivity::class.java)
+            // You might need to set additional extras or flags based on your app logic
+            startActivity(menuIntent)
+        }
     }
-
-
 }

@@ -2,6 +2,7 @@ package com.example.quickbite
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.viewModels
@@ -16,6 +17,7 @@ import com.example.quickbite.models.Restaurant
 
 class RestaurantPageActivity : AppCompatActivity() {
     private val viewModel: AppViewModel by viewModels { SavedStateViewModelFactory(application, this) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restaurant_page)
@@ -27,9 +29,9 @@ class RestaurantPageActivity : AppCompatActivity() {
             val restaurantNameTextView: TextView = findViewById(R.id.restaurantNameTextView)
             val descriptionTextView: TextView = findViewById(R.id.descriptionTextView)
             val itemsRecyclerView: RecyclerView = findViewById(R.id.itemsRecyclerView)
+            val backButton: Button = findViewById(R.id.goBackButton)
 
             restaurantImageView.loadImageFromURL(it.imageURL)
-
             restaurantNameTextView.text = it.restaurantName
             descriptionTextView.text = it.description
 
@@ -46,10 +48,16 @@ class RestaurantPageActivity : AppCompatActivity() {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.restaurantMenuContainer, restaurantMenuFragment)
                 .commit()
+
+            // Set OnClickListener for the Back button
+            backButton.setOnClickListener {
+                navigateBack()
+            }
         }
     }
-     fun navigateBack() {
+
+    // Function to navigate back
+    private fun navigateBack() {
         onBackPressed()
     }
-
 }

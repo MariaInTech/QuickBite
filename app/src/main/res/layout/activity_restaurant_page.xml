@@ -65,12 +65,21 @@
             android:textStyle="bold"
             android:paddingTop="8dp"/>
 
+        <Button
+            android:id="@+id/goBackButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#0B2AF6"
+            android:text="Go Back"
+            android:textColor="#FAEFEF" />
+
         <FrameLayout
             android:id="@+id/restaurantMenuContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <include layout="@layout/fragment_restaurant_menu" />
-        </FrameLayout>
 
+            <include layout="@layout/fragment_restaurant_menu" />
+
+        </FrameLayout>
     </LinearLayout>
 </ScrollView>

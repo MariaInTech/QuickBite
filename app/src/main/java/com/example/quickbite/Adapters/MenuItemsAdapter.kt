@@ -38,11 +38,7 @@ class MenuItemsAdapter(
             context.startActivity(intent)
         }
 
-        holder.goBackButton.setOnClickListener {
-            // Call a method in your RestaurantPage activity to navigate back
-            // You can use an interface/callback or other mechanisms for communication
-            (context as? RestaurantPageActivity)?.navigateBack()
-        }
+
     }
     override fun getItemCount(): Int {
         return items.size
@@ -51,6 +47,5 @@ class MenuItemsAdapter(
         var itemImage: ImageView = itemView.findViewById(R.id.itemImage)
         var itemName: TextView = itemView.findViewById(R.id.itemName)
         var itemPrice: TextView = itemView.findViewById(R.id.itemPrice)
-        var goBackButton: Button = itemView.findViewById(R.id.goBackButton)
     }
 }
