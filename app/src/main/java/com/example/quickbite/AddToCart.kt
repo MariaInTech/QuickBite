@@ -39,17 +39,14 @@ class AddToCart : AppCompatActivity() {
         itemNameTextView.text = selectedItemName
         itemPriceTextView.text = "Price: $$selectedItemPrice"
 
-        btnAddToCart.setOnClickListener {
-            val cartIntent = Intent(this@AddToCart, CartActivity::class.java)
-            cartIntent.putExtra("selectedItem", selectedItem)
-            cartIntent.putExtra("restaurantName", restaurantName)
-            startActivity(cartIntent)
-        }
 
         btnBackToMenu.setOnClickListener {
-            val menuIntent = Intent(this@AddToCart, RestaurantPageActivity::class.java)
-            // You might need to set additional extras or flags based on your app logic
-            startActivity(menuIntent)
+            navigateBack()
         }
     }
+
+    private fun navigateBack() {
+        onBackPressed()
+    }
+
 }
