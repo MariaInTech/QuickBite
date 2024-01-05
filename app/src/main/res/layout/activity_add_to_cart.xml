@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/itemImageView"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
         android:layout_marginTop="140dp"
         android:scaleType="centerCrop"
         app:layout_constraintEnd_toEndOf="parent"
@@ -48,6 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:layout_marginTop="5dp"
         android:backgroundTint="#0B2AF6"
         android:text="Add to Cart"
         android:textColor="#FDFDFD"
@@ -60,9 +61,11 @@
 
     <Button
         android:id="@+id/btnBackToMenu"
-        android:layout_width="156dp"
-        android:layout_height="57dp"
+        android:layout_width="170dp"
+        android:layout_height="35dp"
         android:layout_margin="16dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="#5E6564"
         android:text="Back To Menu"
         android:textColor="#FDFDFD"
@@ -71,5 +74,5 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/itemPriceTextView"
-        app:layout_constraintVertical_bias="0.523" />
+        app:layout_constraintVertical_bias="1.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
